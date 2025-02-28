@@ -28,3 +28,4 @@ class JourneySchema(BaseModel):
     start_date: Optional[date] = Field(None, description="Start date of the journey")
     end_date: Optional[date] = Field(None, description="Expected end date of the journey")
     summary: Optional[str] = Field(None, description="AI-generated story-like summary of the journey")
+    user_id: Optional[str] = Field(None, description="User ID associated with the journey")
