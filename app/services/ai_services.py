@@ -12,7 +12,8 @@ from langchain_core.prompts import PromptTemplate
 class EDAI:
     def __init__(self):
         llm = HuggingFaceEndpoint(
-            repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
+            # repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
+            repo_id="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
             task="text-generation",
             max_new_tokens=100,
             do_sample=False,
@@ -55,6 +56,7 @@ Generate a structured learning pathway for the course "{course_name}" at the "{d
 
 
     def generate_pathway(self, **request):
+        print("hi")
         try:
             # Generate the structured learning pathway
             response = self.pathway_chain.invoke({
