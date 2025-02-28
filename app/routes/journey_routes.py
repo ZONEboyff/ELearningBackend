@@ -12,6 +12,14 @@ def get_journey_service():
 async def get_journeys(journey_service: JourneyService = Depends(get_journey_service)):   
     return await journey_service.get_all_journeys()
 
+@router.get("/journey/{journey_id}")
+async def get_journey(journey_id: str, journey_service: JourneyService = Depends(get_journey_service)):
+    return await journey_service.get_journey(journey_id)
+
+@router.get("/journey/user/{user_id}")
+async def get_user_journeys(user_id: str, journey_service: JourneyService = Depends(get_journey_service)):
+    return await journey_service.get_user_journeys(user_id)
+
 @router.post("/journey")
 async def create_journey(journey: JourneySchema, journey_service: JourneyService = Depends(get_journey_service)):
     

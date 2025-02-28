@@ -7,9 +7,9 @@ from decimal import Decimal
 
 # Define enum for difficulty levels
 class DifficultyLevel(str, Enum):
-    BASIC = "BASIC"
-    INTERMEDIATE = "INTERMEDIATE"
-    ADVANCED = "ADVANCED"
+    BASIC = "basic"
+    INTERMEDIATE = "intermediate"
+    ADVANCED = "advanced"
 
 # Define module structure for pathway
 class Module(BaseModel):

@@ -54,8 +54,40 @@ Generate a structured learning pathway for the course "{course_name}" at the "{d
         chain = prompt | chat | parser
         self.pathway_chain = chain
 
+        
+
+
+
 
     def generate_pathway(self, **request):
+        parser = JsonOutputParser(pydantic_object=CoursePathway)
+        
+        # Create the prompt template
+        prompt = ChatPromptTemplate.from_template(
+            """
+Generate a structured learning pathway for the course "{course_name}" at the "{difficulty_level}" difficulty level.
+
+{format_instructions}
+
+### Guidelines:
+- Adjust depth and complexity based on difficulty level:
+  - Beginner: Focus on fundamental concepts, clear explanations, and essential terminology.
+  - Intermediate: Cover more technical details, real-world applications, and practical implementations.
+  - Advanced: Dive deep into theories, optimizations, and latest advancements.
+- Maintain a logical flow, but the first module doesn't always have to be an introduction.
+- Create 5-8 modules total, each with 3-5 sub-headings.
+- Ensure the content is comprehensive for the specified difficulty level.
+            """
+        )
+
+        # Add format instructions to the prompt
+        prompt = prompt.partial(
+            format_instructions=parser.get_format_instructions()
+        )
+
+        # Create the chain
+        chain = prompt | self.chat | parser
+        self.pathway_chain = chain
         print("hi")
         try:
             # Generate the structured learning pathway
