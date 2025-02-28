@@ -24,4 +24,3 @@ def create_topic(topic: JourneySchema):
         raise HTTPException(status_code=400, detail="Failed to add topic")
     return new_journey
 
-print("test")
