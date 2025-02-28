@@ -7,5 +7,5 @@ def init_firebase():
     # load_dotenv()
     # Decode the base64 string and parse it as JSON
 
-    cred = credentials.Certificate(r"D:\Events\Ed-Venture\ELearningBackend\app\config\firebase_config.json")  # Path to your JSON key file
+    cred = credentials.Certificate("firebase_config.json")  # Path to your JSON key file
     initialize_app(cred)
