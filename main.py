@@ -23,3 +23,5 @@ def create_topic(topic: JourneySchema):
     if not new_journey:
         raise HTTPException(status_code=400, detail="Failed to add topic")
     return new_journey
+
+print("test")
