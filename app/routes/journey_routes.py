@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from app.services.journey_service import JourneyService
-from app.models.schemas import Disease, JourneySchema
+from app.models.schemas import JourneySchema
 from app.database.firebase import FirebaseDB
 
 router = APIRouter()

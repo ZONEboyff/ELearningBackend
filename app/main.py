@@ -13,4 +13,4 @@ app = FastAPI(
 )
 
 # Include routers
-app.include_router(journey_routes.router, prefix="/", tags=["journeys"])
+app.include_router(journey_routes.router, prefix="/edventure", tags=["journeys"])
